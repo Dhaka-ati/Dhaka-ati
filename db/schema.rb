@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_29_181140) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_124528) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "api_tokens", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.text "token", null: false
     t.boolean "active", default: true
     t.datetime "expired_at"
@@ -35,7 +38,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_181140) do
 
   create_table "invitation_keys", force: :cascade do |t|
     t.string "key"
-    t.integer "room_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "expire_at"
@@ -43,7 +46,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_181140) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.integer "room_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -52,9 +55,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_181140) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "title"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_block", default: false
+    t.string "description"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 

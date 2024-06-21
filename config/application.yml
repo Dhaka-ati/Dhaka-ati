@@ -1,0 +1,10 @@
+development:
+  ROOT_URL: http://localhost:3000
+  DATABASE_NAME: dhaka-ati
+  DATABASE_USER_NAME: postgres
+  DATABASE_PASSWORD: password
+
+#test:
+#  DATABASE_NAME: ilms_backend_test
+#  DATABASE_USER_NAME: misfit
+#  DATABASE_PASSWORD: password
