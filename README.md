@@ -9,10 +9,6 @@
 
 1. Clone repository and change directory
 
-```bash
-git clone https://github.com/mdismail-cse/expensely-backend.git
-cd expensely-backend
-```
 
 2. Check Ruby version
 
